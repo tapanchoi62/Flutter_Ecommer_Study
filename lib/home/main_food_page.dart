@@ -19,21 +19,20 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 45,bottom: 15),
-            padding: EdgeInsets.only(left:20,right: 20),
+            margin: EdgeInsets.only(top: 45, bottom: 15),
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
-                    BigText(text: "Bangladesh",color: AppColors.mainColor),
+                    BigText(text: "Bangladeshs", color: AppColors.mainColor),
                     Row(
-                        children: [
-                          SmallText(text: "Nasingdi"),
-                          Icon(Icons.arrow_drop_down_outlined)
-                        ],
+                      children: [
+                        SmallText(text: "Nasingdi"),
+                        Icon(Icons.arrow_drop_down_outlined)
+                      ],
                     )
-                    
                   ],
                 ),
                 Container(
@@ -41,9 +40,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   height: 45,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: AppColors.mainColor
+                      color: AppColors.mainColor),
+                  child: Icon(
+                    Icons.search_rounded,
+                    color: Colors.white,
                   ),
-                  child: Icon(Icons.search_rounded,color: Colors.white,),
                 )
               ],
             ),
