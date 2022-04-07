@@ -1,6 +1,7 @@
 import 'package:app_ecommer/utils/color.dart';
 import 'package:app_ecommer/widgets/big_text.dart';
 import 'package:app_ecommer/widgets/small_text.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,15 +32,29 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 320,
-      color: Colors.white,
-      child: PageView.builder(
-          controller: pageController,
-          itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buildPageItem(position);
-          }),
+    return Column(
+      children: [
+        Container(
+          height: 320,
+          color: Colors.white,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position);
+              }),
+        ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: currentValue,
+          decorator: DotsDecorator(
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        )
+      ],
     );
   }
 
@@ -70,7 +85,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height: 220,
-            margin: EdgeInsets.only(left: 16, right: 16),
+            margin: EdgeInsets.only(left: 20, right: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: position.isEven ? Color(0xFF69c5df) : Color(0xff6d0dc1),
@@ -84,13 +99,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 140,
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 15),
+              margin: EdgeInsets.only(left: 35, right: 35, bottom: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Color(0xFFFFFFFF),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey, blurRadius: 5, offset: Offset(4, 8)),
+                      color: Colors.grey, blurRadius: 5, offset: Offset(0, 5)),
                 ],
               ),
               child: Container(
@@ -148,7 +163,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
